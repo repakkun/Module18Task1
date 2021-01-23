@@ -11,9 +11,16 @@ namespace Module18Task1
         static void Main(string[] args)
         {
             Calculator calculator = new Calculator();
-            Console.WriteLine("Введите два числа");
-            calculator.Addition(Int32.Parse(Console.ReadLine()), Int32.Parse(Console.ReadLine()));
-            Console.ReadKey();
+            try
+            {
+                Console.WriteLine("Введите два числа");
+                calculator.Addition(Int32.Parse(Console.ReadLine()), Int32.Parse(Console.ReadLine()));
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+                Console.ReadKey();              
         }
         public interface ICalculator
         {
